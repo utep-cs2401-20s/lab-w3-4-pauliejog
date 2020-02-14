@@ -1,3 +1,8 @@
+/*
+ * Paulie Jo Gonzalez
+ * lab W3-4
+ * MW 1:30 pm
+ */
 public class TorusGameOfLife extends GameOfLife {
 
     public TorusGameOfLife() {}
@@ -10,7 +15,7 @@ public class TorusGameOfLife extends GameOfLife {
         super(arr);
     }
 
-    /* neighbors method:
+    /* TGOL neighbors method:
      * Counts the number of living neighbors of the given cell.
      */
     @Override

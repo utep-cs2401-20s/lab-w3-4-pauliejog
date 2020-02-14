@@ -23,8 +23,9 @@ public class GameOfLife {
         this.board = new int[size][size];
         this.previous = new int[size][size];
         for(int r = 0; r < size; r++) {
-            for(int c = 0; c < size; c++) {
+            for(int c = 0; c < arr[0].length; c++) {
                 previous[r][c] = arr[r][c];
+                board[r][c] = arr[r][c];
             }
         }
     }
@@ -69,6 +70,7 @@ public class GameOfLife {
 
     /* neighbors method:
      * Counts the number of living neighbors of the given cell.
+     * live cell = 1, dead cell = 0
      */
     public int neighbors(int r, int c) {//counts live neighbors
         int count = 0;

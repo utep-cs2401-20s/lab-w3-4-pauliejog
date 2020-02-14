@@ -14,12 +14,20 @@ public class TorusGameOfLife extends GameOfLife {
      * Counts the number of living neighbors of the given cell.
      */
     @Override
-    public int neighbors(int r, int c) {//fix this
+    public int neighbors(int r, int c) {
         int count = 0;
         int up = r - 1;
+        if(up < 0)//checking values that should wrap around board
+            up = previous.length - 1;
         int down = r + 1;
+        if(down == previous.length)
+            down = 0;
         int left = c - 1;
+        if(left < 0)
+            left = previous[0].length - 1;
         int right = c + 1;
+        if(right == previous[0].length)
+            right = 0;
 
         if(up > -1 && left > -1) {
             if(previous[up][left] == 1)     count++;

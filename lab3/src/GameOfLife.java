@@ -45,7 +45,7 @@ public class GameOfLife {
             for(int j = 0; j < previous[i].length; j++) {
                 board[i][j] = previous[i][j];
             }
-        }
+        }//end for
 
         for(int r = 0; r < previous.length; r++) {//update board based on rules of the game
             for(int c = 0; c < previous[r].length; c++) {
@@ -57,13 +57,13 @@ public class GameOfLife {
                     if(neighbors(r,c) > 3) board[r][c] = 0;
                 }
             }
-        }
+        }//end for
 
-        for(int i = 0; i < board.length; i++) {//copy board to previous to start over?
+        for(int i = 0; i < board.length; i++) {//copy previous to board
             for(int j = 0; j < board[i].length; j++) {
                 previous[i][j] = board[i][j];
             }
-        }
+        }//end for
 
     }//end oneStep
 
@@ -83,13 +83,13 @@ public class GameOfLife {
         if(up > -1) {
             if(previous[up][c] == 1)        count++;
         }
-        if(up > -1 && right < previous.length) {
+        if(up > -1 && right < previous[0].length) {
             if(previous[up][right] == 1)    count++;
         }
         if(left > -1) {
             if(previous[r][left] == 1)      count++;
         }
-        if(right < previous.length) {
+        if(right < previous[0].length) {
             if(previous[r][right] == 1)     count++;
         }
         if(down < previous.length && left > -1) {
@@ -98,7 +98,7 @@ public class GameOfLife {
         if(down < previous.length) {
             if(previous[down][c] == 1)      count++;
         }
-        if(down < previous.length && right < previous.length) {
+        if(down < previous.length && right < previous[0].length) {
             if(previous[down][right] == 1)  count++;
         }
 

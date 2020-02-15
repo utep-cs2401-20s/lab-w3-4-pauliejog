@@ -16,7 +16,7 @@ public class TorusGameOfLife extends GameOfLife {
     }
 
     /* TGOL neighbors method:
-     * Counts the number of living neighbors of the given cell.
+     * Counts the number of living neighbors of the given cell on torus board.
      */
     @Override
     public int neighbors(int r, int c) {
@@ -60,6 +60,5 @@ public class TorusGameOfLife extends GameOfLife {
         }
 
         return count;
-    }
-
+    }//end neighbors
 }//end class

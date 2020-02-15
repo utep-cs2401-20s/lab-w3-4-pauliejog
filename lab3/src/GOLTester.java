@@ -28,6 +28,7 @@ public class GOLTester {
         for(int i = 1; i < 4; i++)
             B[2][i] = 1;
         GameOfLife gol = new GameOfLife(B);
+        gol.printBoard();
         assertEquals(3,gol.neighbors(1,2));
     }
 
@@ -44,6 +45,7 @@ public class GOLTester {
         for(int i = 1; i < 4; i++)
             B[3][i] = 1;
         GameOfLife gol = new GameOfLife(B);
+        gol.printBoard();
         assertEquals(4,gol.neighbors(2,2));
     }
 
@@ -64,6 +66,7 @@ public class GOLTester {
                 B[i][j] = 1;
         }
         GameOfLife gol = new GameOfLife(B);
+        gol.printBoard();
         assertEquals(0,gol.neighbors(0,4));
     }
 
@@ -80,6 +83,7 @@ public class GOLTester {
                 B[i][j] = 1;
         }
         GameOfLife gol = new GameOfLife(B);
+        gol.printBoard();
         assertEquals(8,gol.neighbors(1,1));
     }
 
@@ -96,6 +100,7 @@ public class GOLTester {
                 B[i][j] = 1;
         }
         GameOfLife gol = new GameOfLife(B);
+        gol.printBoard();
         assertEquals(3,gol.neighbors(0,3));
     }
 
@@ -160,7 +165,7 @@ public class GOLTester {
     /*
      * oneStep:
      * Test case 4:
-     * oneStep() →
+     * oneStep() → exp
      */
     @Test
     public void testOneStep4() {
@@ -183,16 +188,21 @@ public class GOLTester {
     /*
      * oneStep:
      * Test case 5:
-     * oneStep() →
+     * oneStep() → exp
      */
     @Test
     public void testOneStep5() {
-        int[][] A = {{0,1,0,0},{0,0,1,0},{1,0,1,0},{0,1,0,0}};
-        int[][] exp = {{0,0,0,0},{0,0,1,0},{0,0,1,0},{0,1,0,0}};
+        int[][] A = {{0,1,0,0},
+                    {0,0,1,0},
+                    {1,0,1,0},
+                    {0,1,0,0}};
+        int[][] exp = {{0,0,0,0},
+                        {0,0,1,0},
+                        {0,0,1,0},
+                        {0,1,0,0}};
         GameOfLife gol = new GameOfLife(A);
         gol.oneStep();
         assertArrayEquals(exp,gol.getBoard());
-
     }
 
     // - - - - - - - - - - - - - - - - - - - -evolution - - - - - - - - - - - - - - - - - - - - - - - -//
@@ -203,8 +213,12 @@ public class GOLTester {
      */
     @Test
     public void testEvolution1() {
-        int[][] A = {{1,1,1},{1,1,1},{1,1,1}};
-        int[][] exp = {{1,0,1},{0,0,0},{1,0,1}};//expected outcome
+        int[][] A = {{1,1,1},
+                    {1,1,1},
+                    {1,1,1}};
+        int[][] exp = {{1,0,1},
+                        {0,0,0},
+                        {1,0,1}};//expected outcome
         GameOfLife gol = new GameOfLife(A);
         gol.evolution(1);
         assertArrayEquals(exp,gol.getBoard());
@@ -217,8 +231,12 @@ public class GOLTester {
      */
     @Test
     public void testEvolution2() {
-        int[][] A = {{1,1,1},{1,1,1},{1,1,1}};
-        int[][] exp = {{0,0,0},{0,0,0},{0,0,0}};//expected outcome
+        int[][] A = {{1,1,1},
+                    {1,1,1},
+                    {1,1,1}};
+        int[][] exp = {{0,0,0},
+                        {0,0,0},
+                        {0,0,0}};//expected outcome
         GameOfLife gol = new GameOfLife(A);
         gol.evolution(2);
         assertArrayEquals(exp,gol.getBoard());
@@ -237,11 +255,11 @@ public class GOLTester {
         for(int i = 1; i < 4; i++)
             B[3][i] = 1;
         int[][] exp = {{0,0,0,0,0,0},
-                {0,0,0,1,0,0},
-                {0,1,0,0,1,0},
-                {0,1,0,0,1,0},
-                {0,0,1,0,0,0},
-                {0,0,0,0,0,0}};//expected outcome
+                        {0,0,0,1,0,0},
+                        {0,1,0,0,1,0},
+                        {0,1,0,0,1,0},
+                        {0,0,1,0,0,0},
+                        {0,0,0,0,0,0}};//expected outcome
         GameOfLife gol = new GameOfLife(B);
         gol.evolution(1);
         assertArrayEquals(exp,gol.getBoard());
@@ -254,8 +272,14 @@ public class GOLTester {
      */
     @Test
     public void testEvolution4() {
-        int[][] A = {{0,0,1,0},{0,1,1,0},{1,0,1,1},{1,0,1,0}};
-        int[][] exp = {{0,0,0,0},{0,1,1,1},{0,0,0,0},{0,0,1,1}};
+        int[][] A = {{0,0,1,0},
+                    {0,1,1,0},
+                    {1,0,1,1},
+                    {1,0,1,0}};
+        int[][] exp = {{0,0,0,0},
+                        {0,1,1,1},
+                        {0,0,0,0},
+                        {0,0,1,1}};
         GameOfLife gol = new GameOfLife(A);
         gol.evolution(3);
         assertArrayEquals(exp,gol.getBoard());
@@ -268,12 +292,17 @@ public class GOLTester {
      */
     @Test
     public void testEvolution5() {
-        int[][] A = {{0,1,0,0},{0,0,1,0},{1,0,1,0},{0,1,0,0}};
-        int[][] exp = {{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
+        int[][] A = {{0,1,0,0},
+                    {0,0,1,0},
+                    {1,0,1,0},
+                    {0,1,0,0}};
+        int[][] exp = {{0,0,0,0},
+                        {0,0,0,0},
+                        {0,0,0,0},
+                        {0,0,0,0}};
         GameOfLife gol = new GameOfLife(A);
         gol.evolution(7);
         assertArrayEquals(exp,gol.getBoard());
-
     }
 
     /********************************************************************
@@ -295,6 +324,7 @@ public class GOLTester {
                     {0,1,0,0},
                     {1,1,1,1}};
         TorusGameOfLife tgol = new TorusGameOfLife(A);
+        tgol.printBoard();
         assertEquals(5,tgol.neighbors(0,0));
     }
 
@@ -311,7 +341,7 @@ public class GOLTester {
         for(int i = 1; i < 4; i++)
             B[3][i] = 1;
         TorusGameOfLife tgol = new TorusGameOfLife(B);
-        //tgol.printBoard();
+        tgol.printBoard();
         assertEquals(4,tgol.neighbors(2,2));
     }
 
@@ -328,13 +358,14 @@ public class GOLTester {
                     {0,1,1,1,1},
                     {0,1,1,1,1}};
         TorusGameOfLife tgol = new TorusGameOfLife(B);
+        tgol.printBoard();
         assertEquals(7,tgol.neighbors(0,2));
     }
 
     /*
      * TGOL neighbors:
      * Test case 4:
-     * neighbors(4,6) → 6
+     * neighbors(3,5) → 4
      */
     @Test
     public void testNeighborsT4() {
@@ -352,6 +383,7 @@ public class GOLTester {
         B[14][4] = 1; B[14][5] = 1; B[14][6] = 1;
         B[15][5] = 1;
         TorusGameOfLife tgol = new TorusGameOfLife(B);
+        tgol.printBoard();
         assertEquals(4,tgol.neighbors(3,5));
     }
 
@@ -368,6 +400,7 @@ public class GOLTester {
                 B[i][j] = 1;
         }
         TorusGameOfLife tgol = new TorusGameOfLife(B);
+        tgol.printBoard();
         assertEquals(8,tgol.neighbors(3,3));
     }
 
@@ -379,8 +412,12 @@ public class GOLTester {
      */
     @Test
     public void testOneStepT1() {
-        int[][] A = {{1,1,1},{1,1,1},{1,1,1}};
-        int[][] exp = {{0,0,0},{0,0,0},{0,0,0}};
+        int[][] A = {{1,1,1},
+                    {1,1,1},
+                    {1,1,1}};
+        int[][] exp = {{0,0,0},
+                        {0,0,0},
+                        {0,0,0}};
         TorusGameOfLife tgol = new TorusGameOfLife(A);
         tgol.oneStep();
         assertArrayEquals(exp,tgol.getBoard());
@@ -435,8 +472,10 @@ public class GOLTester {
      */
     @Test
     public void testOneStepT4() {
-        int[][] A = {{0,1},{1,1}};
-        int[][] exp = {{0,0},{0,0}};
+        int[][] A = {{0,1},
+                    {1,1}};
+        int[][] exp = {{0,0},
+                        {0,0}};
         TorusGameOfLife tgol = new TorusGameOfLife(A);
         tgol.oneStep();
         assertArrayEquals(exp,tgol.getBoard());
@@ -449,8 +488,12 @@ public class GOLTester {
      */
     @Test
     public void testOneStepT5() {
-        int[][] A = {{0,1,0},{0,1,0},{1,0,0}};
-        int[][] exp = {{1,1,1},{1,1,1},{1,1,1}};
+        int[][] A = {{0,1,0},
+                    {0,1,0},
+                    {1,0,0}};
+        int[][] exp = {{1,1,1},
+                        {1,1,1},
+                        {1,1,1}};
         TorusGameOfLife tgol = new TorusGameOfLife(A);
         tgol.oneStep();
         assertArrayEquals(exp,tgol.getBoard());
@@ -464,8 +507,12 @@ public class GOLTester {
      */
     @Test
     public void testEvolutionT1() {
-        int[][] A = {{1,1,1},{1,1,1},{1,1,1}};
-        int[][] exp = {{1,1,1},{1,1,1},{1,1,1}};
+        int[][] A = {{1,1,1},
+                    {1,1,1},
+                    {1,1,1}};
+        int[][] exp = {{1,1,1},
+                        {1,1,1},
+                        {1,1,1}};
         TorusGameOfLife tgol = new TorusGameOfLife(A);
         tgol.evolution(0);
         assertArrayEquals(exp,tgol.getBoard());
@@ -496,7 +543,7 @@ public class GOLTester {
     /*
      * TGOL evolution:
      * Test case 3:
-     * evolution(3) →
+     * evolution(3) → exp
      */
     @Test
     public void testEvolutionT3() {
@@ -511,32 +558,41 @@ public class GOLTester {
         TorusGameOfLife tgol = new TorusGameOfLife(A);
         tgol.evolution(3);
         assertArrayEquals(exp,tgol.getBoard());
-
     }
 
     /*
      * TGOL evolution:
      * Test case 4:
-     * evolution(1) →
+     * evolution(8) → exp
      */
     @Test
     public void testEvolutionT4() {
-        int[][] A = {{1,0,1,0},{0,1,0,1},{1,0,1,0},{0,1,1,0}};
-        int[][] exp = {{1,0,0,0},{0,0,0,0},{1,0,0,0},{1,0,1,0}};
+        int[][] A = {{1,0,1,0},
+                    {0,1,0,1},
+                    {1,0,1,0},
+                    {0,1,1,0}};
+        int[][] exp = {{1,0,0,0},
+                        {0,0,0,0},
+                        {1,0,0,0},
+                        {0,1,0,1}};//this board stays the same after 3 evolutions
         TorusGameOfLife tgol = new TorusGameOfLife(A);
-        tgol.evolution(1);
+        tgol.evolution(8);
         assertArrayEquals(exp,tgol.getBoard());
     }
 
     /*
      * TGOL evolution:
      * Test case 5:
-     * evolution(2) →
+     * evolution(2) → exp
      */
     @Test
     public void testEvolutionT5() {
-        int[][] A = {{0,1,0},{0,1,0},{1,0,0}};
-        int[][] exp = {{0,0,0},{0,0,0},{0,0,0}};
+        int[][] A = {{0,1,0},
+                    {0,1,0},
+                    {1,0,0}};
+        int[][] exp = {{0,0,0},
+                        {0,0,0},
+                        {0,0,0}};
         TorusGameOfLife tgol = new TorusGameOfLife(A);
         tgol.evolution(2);
         assertArrayEquals(exp,tgol.getBoard());

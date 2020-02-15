@@ -129,5 +129,4 @@ public class GameOfLife {
             System.out.println();
         }
     }//end printBoard
-
 }//end class

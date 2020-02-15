@@ -3,6 +3,7 @@
  * lab W3-4
  * MW 1:30 pm
  */
+
 public class TorusGameOfLife extends GameOfLife {
 
     public TorusGameOfLife() {}

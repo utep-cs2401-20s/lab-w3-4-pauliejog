@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
  * lab W3-4
  * MW 1:30 pm
  */
+
 public class GOLTester {
     /********************************************************************
      *GameOfLife tests
@@ -104,7 +105,7 @@ public class GOLTester {
         assertEquals(3,gol.neighbors(0,3));
     }
 
-    // - - - - - - - - - - - - - - - - - - - - -oneStep - - - - - - - - - - - - - - - - - - - - - - -//
+    // - - - - - - - - - - - - - - - - - - - - -oneStep - - - - - - - - - - - - - - - - - - - - - - - -//
     /*
     * oneStep:
     * Test case 1:

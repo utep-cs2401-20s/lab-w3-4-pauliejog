@@ -10,7 +10,7 @@ public class GameOfLife {
     int[][] board;
     int[][] previous;
 
-    public GameOfLife() {}
+    public GameOfLife() {}//default constructor
 
     public GameOfLife(int size) {
         this.size = size;
